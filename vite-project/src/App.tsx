@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import TodoFetch from "./TodoFetch";
+import TodoReactQuery from "./TodoReactQuery";
 
 interface ITodo {
     id: number;
@@ -72,6 +74,8 @@ const App = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+            <TodoFetch />
+            <TodoReactQuery />
             <div className="max-w-2xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
