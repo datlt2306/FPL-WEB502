@@ -16,3 +16,19 @@ const TodoReactQuery = () => {
 };
 
 export default TodoReactQuery;
+/**
+ * B1: npm i @tanstack/react-query
+ * B2: Truy cập main.tsx và thêm const queryClient = new QueryClient();
+ * B3: <QueryClientProvider client={queryClient}>
+ *      <App />
+ * </QueryClientProvider>
+ * B4: Truy cập component và sử dụng
+ * useQuery({
+ *      queryKey: ["TODOS"],
+ *      queryFn: async () => {
+ *          const response = await fetch("http://localhost:3000/todos");
+ *          const data = await response.json();
+ *          return data;
+ *      },
+ * });
+ */
