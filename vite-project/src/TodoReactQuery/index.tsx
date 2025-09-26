@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 interface ITodo {
     id: number;
@@ -7,6 +7,7 @@ interface ITodo {
     completed: boolean;
 }
 const TodoReactQuery = () => {
+    const queryClient = useQueryClient();
     const {
         data: todos,
         isLoading,
@@ -34,6 +35,12 @@ const TodoReactQuery = () => {
             });
             const data = await response.json();
             return data;
+        },
+        onSuccess: () => {
+            // call lại API để lấy dữ liệu mới nhất
+            queryClient.invalidateQueries({
+                queryKey: ["TODOS"],
+            });
         },
     });
 

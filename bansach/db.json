@@ -1,0 +1,52 @@
+{
+  "books": [
+    {
+      "id": 7,
+      "tenSach": "Đất Rừng Phương Nam",
+      "moTa": "Hành trình phiêu lưu của cậu bé An ở miền Tây Nam Bộ.",
+      "namXuatBan": 1991,
+      "nhaXuatBan": "NXB Kim Đồng",
+      "tacGia": "Đoàn Giỏi"
+    },
+    {
+      "id": 8,
+      "tenSach": "Bố Già",
+      "moTa": "Tiểu thuyết về thế giới mafia Ý và gia đình Corleone.",
+      "namXuatBan": 1969,
+      "nhaXuatBan": "NXB Văn Học",
+      "tacGia": "Mario Puzo"
+    },
+    {
+      "id": 9,
+      "tenSach": "Harry Potter và Hòn Đá Phù Thủy",
+      "moTa": "Phần đầu tiên trong loạt truyện Harry Potter nổi tiếng.",
+      "namXuatBan": 1997,
+      "nhaXuatBan": "NXB Trẻ",
+      "tacGia": "J.K. Rowling"
+    },
+    {
+      "id": 10,
+      "tenSach": "Nhà Giả Kim",
+      "moTa": "Hành trình đi tìm kho báu và ý nghĩa cuộc sống.",
+      "namXuatBan": 1988,
+      "nhaXuatBan": "NXB Văn Học",
+      "tacGia": "Paulo Coelho"
+    },
+    {
+      "tenSach": "Mưa đỏ",
+      "moTa": "Mô tả",
+      "namXuatBan": "2025",
+      "nhaXuatBan": "",
+      "tacGia": "abc",
+      "id": 11
+    },
+    {
+      "tenSach": "Abakjsdhak",
+      "moTa": "jsdhajkdhjas",
+      "namXuatBan": "213213",
+      "nhaXuatBan": "",
+      "tacGia": "1232131",
+      "id": 12
+    }
+  ]
+}
