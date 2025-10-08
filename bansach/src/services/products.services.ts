@@ -7,5 +7,13 @@ const getAll = async () => {
     }
     return response.data;
 }
-
-export { getAll };
+const remove = async (id: number) => {
+    const response = await config.delete(`/books/${id}`);
+    if (response.status !== 200) {
+        throw new Error("Không thể xóa sản phẩm");
+    }
+    return {
+        success: true
+    };
+}
+export { getAll, remove };

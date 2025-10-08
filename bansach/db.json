@@ -1,52 +1,44 @@
 {
   "books": [
     {
-      "id": 7,
-      "tenSach": "Đất Rừng Phương Nam",
-      "moTa": "Hành trình phiêu lưu của cậu bé An ở miền Tây Nam Bộ.",
-      "namXuatBan": 1991,
-      "nhaXuatBan": "NXB Kim Đồng",
-      "tacGia": "Đoàn Giỏi"
+      "id": 1,
+      "tenSach": "Sách 1",
+      "moTa": "Mô tả 1",
+      "namXuatBan": 2021,
+      "nhaXuatBan": "Nhà xuất bản 1",
+      "tacGia": "Tác giả 1"
     },
     {
-      "id": 8,
-      "tenSach": "Bố Già",
-      "moTa": "Tiểu thuyết về thế giới mafia Ý và gia đình Corleone.",
-      "namXuatBan": 1969,
-      "nhaXuatBan": "NXB Văn Học",
-      "tacGia": "Mario Puzo"
+      "id": 2,
+      "tenSach": "Sách 2",
+      "moTa": "Mô tả 2",
+      "namXuatBan": 2020,
+      "nhaXuatBan": "Nhà xuất bản 2",
+      "tacGia": "Tác giả 2"
     },
     {
-      "id": 9,
-      "tenSach": "Harry Potter và Hòn Đá Phù Thủy",
-      "moTa": "Phần đầu tiên trong loạt truyện Harry Potter nổi tiếng.",
-      "namXuatBan": 1997,
-      "nhaXuatBan": "NXB Trẻ",
-      "tacGia": "J.K. Rowling"
+      "id": 3,
+      "tenSach": "Sách 3",
+      "moTa": "Mô tả 3",
+      "namXuatBan": 2019,
+      "nhaXuatBan": "Nhà xuất bản 3",
+      "tacGia": "Tác giả 3"
     },
     {
-      "id": 10,
-      "tenSach": "Nhà Giả Kim",
-      "moTa": "Hành trình đi tìm kho báu và ý nghĩa cuộc sống.",
-      "namXuatBan": 1988,
-      "nhaXuatBan": "NXB Văn Học",
-      "tacGia": "Paulo Coelho"
+      "id": 5,
+      "tenSach": "Sách 5",
+      "moTa": "Mô tả 5",
+      "namXuatBan": 2017,
+      "nhaXuatBan": "Nhà xuất bản 5",
+      "tacGia": "Tác giả 5"
     },
     {
-      "tenSach": "Mưa đỏ",
-      "moTa": "Mô tả",
-      "namXuatBan": "2025",
-      "nhaXuatBan": "",
-      "tacGia": "abc",
-      "id": 11
-    },
-    {
-      "tenSach": "Abakjsdhak",
-      "moTa": "jsdhajkdhjas",
-      "namXuatBan": "213213",
-      "nhaXuatBan": "",
-      "tacGia": "1232131",
-      "id": 12
+      "id": 6,
+      "tenSach": "Sách 6",
+      "moTa": "Mô tả 6",
+      "namXuatBan": 2016,
+      "nhaXuatBan": "Nhà xuất bản 6",
+      "tacGia": "Tác giả 6"
     }
   ]
 }
