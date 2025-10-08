@@ -1,4 +1,5 @@
 import config from "../config/api";
+import type { IProduct } from "../interfaces/IProduct";
 
 const getAll = async () => {
     const response = await config.get("/books");
@@ -16,4 +17,11 @@ const remove = async (id: number) => {
         success: true
     };
 }
-export { getAll, remove };
+const add = async (product: IProduct) => {
+    const response = await config.post("/books", product);
+    if (response.status !== 201) {
+        throw new Error("Không thể thêm sách");
+    }
+    return response.data;
+}
+export { getAll, remove, add };

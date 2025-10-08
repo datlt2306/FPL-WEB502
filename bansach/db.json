@@ -39,6 +39,14 @@
       "namXuatBan": 2016,
       "nhaXuatBan": "Nhà xuất bản 6",
       "tacGia": "Tác giả 6"
+    },
+    {
+      "tenSach": "Sản phẩm 7",
+      "moTa": "mô tả",
+      "namXuatBan": 2025,
+      "nhaXuatBan": "Đạt",
+      "tacGia": "Đạt",
+      "id": 7
     }
   ]
 }
