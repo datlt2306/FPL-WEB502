@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Button, Skeleton, Table } from "antd";
 import Title from "antd/es/typography/Title";
 import type { IProduct } from "../interfaces/IProduct";
+import { getAll } from "../services/products.services";
 
 const { Column } = Table;
 const ProductList = () => {
     const { data, isLoading, error } = useQuery({
         queryKey: ["BOOKS"],
         queryFn: async () => {
-            const response = await fetch("http://localhost:3000/books");
-            const data = await response.json();
+            const data = await getAll();
             return data.map((item: IProduct) => {
                 return {
                     key: item.id,
