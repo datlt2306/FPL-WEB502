@@ -8,6 +8,13 @@ const getAll = async () => {
     }
     return response.data;
 }
+const getById = async (id: number) => {
+    const response = await config.get(`/books/${id}`);
+    if (response.status !== 200) {
+        throw new Error("Không thể lấy sách theo ID");
+    }
+    return response.data;
+}
 const remove = async (id: number) => {
     const response = await config.delete(`/books/${id}`);
     if (response.status !== 200) {
@@ -24,4 +31,12 @@ const add = async (product: IProduct) => {
     }
     return response.data;
 }
-export { getAll, remove, add };
+const update = async (product: IProduct) => {
+    const response = await config.put(`/books/${product.id}`, product);
+    if (response.status !== 200) {
+        throw new Error("Không thể cập nhật sách");
+    }
+    return response.data;
+}
+export { add, getAll, getById, remove, update };
+

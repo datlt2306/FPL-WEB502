@@ -3,6 +3,7 @@ import { Button, Skeleton, Table } from "antd";
 import Title from "antd/es/typography/Title";
 import type { IProduct } from "../interfaces/IProduct";
 import { getAll, remove } from "../services/products.services";
+import { Link } from "react-router-dom";
 
 const { Column } = Table;
 const ProductList = () => {
@@ -52,7 +53,9 @@ const ProductList = () => {
                         render={(item: IProduct) => {
                             return (
                                 <div>
-                                    <Button type="primary">Edit</Button>
+                                    <Button type="primary">
+                                        <Link to={`/admin/products/edit/${item.id}`}>Edit</Link>
+                                    </Button>
                                     <Button
                                         type="primary"
                                         danger

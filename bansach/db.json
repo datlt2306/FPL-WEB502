@@ -1,12 +1,12 @@
 {
   "books": [
     {
-      "id": 1,
-      "tenSach": "Sách 1",
+      "tenSach": "Sách 1 update",
       "moTa": "Mô tả 1",
       "namXuatBan": 2021,
       "nhaXuatBan": "Nhà xuất bản 1",
-      "tacGia": "Tác giả 1"
+      "tacGia": "Tác giả 1",
+      "id": 1
     },
     {
       "id": 2,
@@ -41,7 +41,7 @@
       "tacGia": "Tác giả 6"
     },
     {
-      "tenSach": "Sản phẩm 7",
+      "tenSach": "Sản phẩm 7 update 1",
       "moTa": "mô tả",
       "namXuatBan": 2025,
       "nhaXuatBan": "Đạt",
