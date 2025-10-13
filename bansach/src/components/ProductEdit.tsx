@@ -1,19 +1,17 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
 import { Button, Form, InputNumber, Skeleton } from "antd";
 import Input from "antd/es/input/Input";
 import TextArea from "antd/es/input/TextArea";
 import Title from "antd/es/typography/Title";
-import { useNavigate, useParams } from "react-router-dom";
-import type { IProduct } from "../interfaces/IProduct";
-import { getById, update } from "../services/api.services";
+import { useParams } from "react-router-dom";
 import { useOne } from "../hooks/useOne";
 import { useUpdate } from "../hooks/useUpdate";
+import type { IProduct } from "../interfaces/IProduct";
 
 const ProductEdit = () => {
     const { id } = useParams();
     // const router = useNavigate();
-    const { data, isLoading, error } = useOne("books", id!);
-    const { mutate } = useUpdate("books", id!);
+    const { data, isLoading, error } = useOne({ resource: "books", id: id! });
+    const { mutate } = useUpdate({ resource: "books", id: id! });
     const onFinish = (values: IProduct) => {
         mutate(values);
     };

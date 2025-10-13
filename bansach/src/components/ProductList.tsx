@@ -1,16 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
 import { Button, Skeleton, Table } from "antd";
 import Title from "antd/es/typography/Title";
 import { Link } from "react-router-dom";
 import useDelete from "../hooks/useDelete";
-import type { IProduct } from "../interfaces/IProduct";
-import { getAll } from "../services/api.services";
 import { useList } from "../hooks/useList";
+import type { IProduct } from "../interfaces/IProduct";
 
 const { Column } = Table;
 const ProductList = () => {
-    const { data, isLoading, error } = useList("books");
-    const { mutate, isPending } = useDelete("books");
+    const { data, isLoading, error } = useList({ resource: "books" });
+    const { mutate, isPending } = useDelete({ resource: "books" });
     if (error) return <div>Error: {error.message}</div>;
     const onHandleDelete = (id: number) => {
         // call API xóa sản phẩm

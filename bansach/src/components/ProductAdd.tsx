@@ -7,7 +7,9 @@ import type { IProduct } from "../interfaces/IProduct";
 
 /// custom hook
 const ProductAdd = () => {
-    const { mutate } = useCreate("books");
+    const { mutate } = useCreate({
+        resource: "books",
+    });
     const onFinish = (values: IProduct) => {
         mutate(values);
     };
