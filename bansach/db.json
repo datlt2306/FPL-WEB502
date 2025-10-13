@@ -1,20 +1,12 @@
 {
   "books": [
     {
-      "tenSach": "Sách 1 update",
-      "moTa": "Mô tả 1",
-      "namXuatBan": 2021,
-      "nhaXuatBan": "Nhà xuất bản 1",
-      "tacGia": "Tác giả 1",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "tenSach": "Sách 2",
+      "tenSach": "Sách 2 update",
       "moTa": "Mô tả 2",
       "namXuatBan": 2020,
       "nhaXuatBan": "Nhà xuất bản 2",
-      "tacGia": "Tác giả 2"
+      "tacGia": "Tác giả 2",
+      "id": 2
     },
     {
       "id": 3,
@@ -25,28 +17,12 @@
       "tacGia": "Tác giả 3"
     },
     {
-      "id": 5,
-      "tenSach": "Sách 5",
-      "moTa": "Mô tả 5",
-      "namXuatBan": 2017,
-      "nhaXuatBan": "Nhà xuất bản 5",
-      "tacGia": "Tác giả 5"
-    },
-    {
-      "id": 6,
-      "tenSach": "Sách 6",
-      "moTa": "Mô tả 6",
-      "namXuatBan": 2016,
-      "nhaXuatBan": "Nhà xuất bản 6",
-      "tacGia": "Tác giả 6"
-    },
-    {
-      "tenSach": "Sản phẩm 7 update 1",
+      "tenSach": "sản phẩm mới",
       "moTa": "mô tả",
-      "namXuatBan": 2025,
-      "nhaXuatBan": "Đạt",
-      "tacGia": "Đạt",
-      "id": 7
+      "namXuatBan": 2000,
+      "nhaXuatBan": "2005",
+      "tacGia": "Datlt",
+      "id": 4
     }
   ]
 }

@@ -1,37 +1,16 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Button, Skeleton, Table } from "antd";
 import Title from "antd/es/typography/Title";
-import type { IProduct } from "../interfaces/IProduct";
-import { getAll, remove } from "../services/products.services";
 import { Link } from "react-router-dom";
+import useDelete from "../hooks/useDelete";
+import type { IProduct } from "../interfaces/IProduct";
+import { getAll } from "../services/api.services";
+import { useList } from "../hooks/useList";
 
 const { Column } = Table;
 const ProductList = () => {
-    const queryClient = useQueryClient();
-    const { data, isLoading, error } = useQuery({
-        queryKey: ["BOOKS"],
-        queryFn: async () => {
-            const data = await getAll();
-            return data.map((item: IProduct) => {
-                return {
-                    key: item.id,
-                    ...item,
-                };
-            });
-        },
-    });
-
-    const { mutate, isPending } = useMutation({
-        mutationFn: async (id: number) => await remove(id),
-        // nếu xóa thành công
-        onSuccess: () => {
-            // gọi lại API để lấy dữ liệu mới nhất
-            queryClient.invalidateQueries({
-                queryKey: ["BOOKS"],
-            });
-        },
-    });
-
+    const { data, isLoading, error } = useList("books");
+    const { mutate, isPending } = useDelete("books");
     if (error) return <div>Error: {error.message}</div>;
     const onHandleDelete = (id: number) => {
         // call API xóa sản phẩm

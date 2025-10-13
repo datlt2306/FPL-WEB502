@@ -5,22 +5,15 @@ import TextArea from "antd/es/input/TextArea";
 import Title from "antd/es/typography/Title";
 import { useNavigate, useParams } from "react-router-dom";
 import type { IProduct } from "../interfaces/IProduct";
-import { getById, update } from "../services/products.services";
+import { getById, update } from "../services/api.services";
+import { useOne } from "../hooks/useOne";
+import { useUpdate } from "../hooks/useUpdate";
 
 const ProductEdit = () => {
     const { id } = useParams();
-    const router = useNavigate();
-
-    const { data, isLoading, error } = useQuery({
-        queryKey: ["BOOKS", id],
-        queryFn: async () => await getById(Number(id)),
-    });
-    const { mutate } = useMutation({
-        mutationFn: async (product: IProduct) => await update({ ...product, id: Number(id) }),
-        onSuccess: () => {
-            router("/");
-        },
-    });
+    // const router = useNavigate();
+    const { data, isLoading, error } = useOne("books", id!);
+    const { mutate } = useUpdate("books", id!);
     const onFinish = (values: IProduct) => {
         mutate(values);
     };

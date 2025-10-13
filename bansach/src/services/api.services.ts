@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import config from "../config/api";
-import type { IProduct } from "../interfaces/IProduct";
 
 const getAll = async () => {
     const response = await config.get("/books");
@@ -8,15 +8,15 @@ const getAll = async () => {
     }
     return response.data;
 }
-const getById = async (id: number) => {
-    const response = await config.get(`/books/${id}`);
+const getById = async (resource: string, id: number | string) => {
+    const response = await config.get(`/${resource}/${id}`);
     if (response.status !== 200) {
         throw new Error("Không thể lấy sách theo ID");
     }
     return response.data;
 }
-const remove = async (id: number) => {
-    const response = await config.delete(`/books/${id}`);
+const remove = async (resource: string, id: number) => {
+    const response = await config.delete(`/${resource}/${id}`);
     if (response.status !== 200) {
         throw new Error("Không thể xóa sản phẩm");
     }
@@ -24,15 +24,15 @@ const remove = async (id: number) => {
         success: true
     };
 }
-const add = async (product: IProduct) => {
-    const response = await config.post("/books", product);
+const add = async (resource: string, payload: any) => {
+    const response = await config.post(`/${resource}`, payload);
     if (response.status !== 201) {
         throw new Error("Không thể thêm sách");
     }
     return response.data;
 }
-const update = async (product: IProduct) => {
-    const response = await config.put(`/books/${product.id}`, product);
+const update = async (resource: string, payload: any) => {
+    const response = await config.put(`/${resource}/${payload.id}`, payload);
     if (response.status !== 200) {
         throw new Error("Không thể cập nhật sách");
     }
