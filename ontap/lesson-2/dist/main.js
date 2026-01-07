@@ -1,4 +1,6 @@
 const myChildren = ['Kiên', 'Trung'];
+// data type string
+// generic array
 const myProfile = {
     name: 'Lê Trọng Đạt',
     age: 39,
