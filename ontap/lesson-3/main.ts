@@ -12,15 +12,15 @@ const result2 = add(10, 20);
 
 console.log(result2);
 
-
-const profile: {
+type TProfile = {
     name: string;
     age: number;
     address: {
         city: string;
         country: string;
     }
-} = {
+}
+const profile: TProfile = {
     name: "John",
     age: 38,
     address: {
@@ -40,3 +40,18 @@ const showProfile = (user: {
     console.log(`${user.name} is ${user.age} years old and lives in ${user.address.city}, ${user.address.country}`);
 }
 showProfile(profile);
+
+
+
+type LoginResult =
+    { success: boolean; error: string }
+    | { success: boolean; userId: number; }
+
+function login(username: string, password: string): LoginResult {
+    if (username !== 'admin' && password !== '123456') {
+        return { success: false, error: 'Sai mật khẩu hoặc username' }
+    }
+    return { success: true, userId: 1 }
+}
+
+login("admin", "123456");

@@ -20,5 +20,12 @@ const showProfile = (user) => {
     console.log(`${user.name} is ${user.age} years old and lives in ${user.address.city}, ${user.address.country}`);
 };
 showProfile(profile);
+function login(username, password) {
+    if (username !== 'admin' && password !== '123456') {
+        return { success: false, error: 'Sai mật khẩu hoặc username' };
+    }
+    return { success: true, userId: 1 };
+}
+login("admin", "123456");
 export {};
 //# sourceMappingURL=main.js.map
