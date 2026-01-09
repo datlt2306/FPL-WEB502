@@ -1,5 +1,5 @@
 function sum(a, b) {
-    return a + b;
+    console.log(a + b);
 }
 const result = sum(10, 20);
 console.log(result);
@@ -27,5 +27,19 @@ function login(username, password) {
     return { success: true, userId: 1 };
 }
 login("admin", "123456");
+const fetchProduct = async () => {
+    const response = await fetch('http://localhost:3000/products');
+    const data = await response.json();
+    return data;
+};
+fetchProduct();
+const products = [
+    { id: 1, name: "Product 1", price: 100 },
+    { id: 2, name: "Product 2", price: 200 },
+    { id: 3, name: "Product 3", price: 300 },
+];
+const showProducts = (data) => {
+};
+showProducts(products);
 export {};
 //# sourceMappingURL=main.js.map
