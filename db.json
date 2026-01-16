@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 5,
-      "name": "Noise Cancelling Headphones",
-      "price": 120,
-      "description": "Over-ear headphones with active noise cancellation.",
-      "instock": true
-    },
-    {
       "id": 6,
       "name": "Portable SSD 1TB",
       "price": 150,

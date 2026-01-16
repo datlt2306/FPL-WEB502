@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
-import instance from "./config/api";
-import { deleteProduct, getAll } from "./services/products";
+import { deleteOne, getAll } from "./providers/dataProvider";
 
 type TProduct = {
     id: number | string;
@@ -19,7 +17,7 @@ function App() {
     useEffect(() => {
         const fetchsProduct = async () => {
             try {
-                const data = await getAll();
+                const data = await getAll({ resource: "products"})
                 setProducts(data);
             } catch (error: any) {
                 throw new Error(error);
@@ -31,9 +29,7 @@ function App() {
         const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
         if (!confirm) return;
         try {
-            // call api
-            await deleteProduct(id);
-            // rerender
+            await deleteOne({ resource: 'products', id})
             setProducts(products.filter((item) => item.id !== id));
         } catch (error: any) {
             throw new Error(error);
