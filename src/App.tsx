@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import instance from "./config/api";
+import { deleteProduct, getAll } from "./services/products";
 
 type TProduct = {
     id: number | string;
@@ -17,20 +19,25 @@ function App() {
     useEffect(() => {
         const fetchsProduct = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/products");
-                if (response.status !== 200) {
-                    throw new Error("Loi API");
-                }
-                setProducts(response.data);
+                const data = await getAll();
+                setProducts(data);
             } catch (error: any) {
                 throw new Error(error);
             }
         };
         fetchsProduct();
-    });
-    const handleRemove = (id: number | string): void => {
-        // rerender
-        setProducts(products.filter((item) => item.id !== id));
+    }, []);
+    const handleRemove = async (id: number | string) => {
+        const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
+        if (!confirm) return;
+        try {
+            // call api
+            await deleteProduct(id);
+            // rerender
+            setProducts(products.filter((item) => item.id !== id));
+        } catch (error: any) {
+            throw new Error(error);
+        }
     };
     return (
         <>
@@ -40,7 +47,6 @@ function App() {
                     <button onClick={() => handleRemove(item.id)}>Xoa</button>
                 </li>
             ))}
-            {/* <ProductList /> */}
         </>
     );
 }
