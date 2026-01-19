@@ -1,27 +1,6 @@
 {
   "products": [
     {
-      "id": 6,
-      "name": "Portable SSD 1TB",
-      "price": 150,
-      "description": "High-speed portable SSD with USB-C port.",
-      "instock": false
-    },
-    {
-      "id": 7,
-      "name": "Smartwatch S7",
-      "price": 220,
-      "description": "Fitness-focused smartwatch with heart rate monitor.",
-      "instock": true
-    },
-    {
-      "id": 8,
-      "name": "Bluetooth Speaker",
-      "price": 60,
-      "description": "Water-resistant portable Bluetooth speaker.",
-      "instock": true
-    },
-    {
       "id": 9,
       "name": "Webcam HD 1080p",
       "price": 45,
