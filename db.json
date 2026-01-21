@@ -13,6 +13,16 @@
       "price": 35,
       "description": "7-in-1 USB-C hub with multiple ports for connectivity.",
       "instock": true
+    },
+    {
+      "name": "Sản phẩm 1",
+      "price": "100",
+      "id": 11
+    },
+    {
+      "name": "Sản phẩm 3",
+      "price": "300",
+      "id": 12
     }
   ],
   "users": []

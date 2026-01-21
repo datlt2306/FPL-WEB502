@@ -1,101 +1,63 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, message, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
-import "./App.css";
-import { deleteOne, getAll } from "./providers/dataProvider";
+import type { TProduct } from "./types/product";
+import axios from "axios";
+import { useForm, type SubmitHandler } from "react-hook-form";
 
-type TProduct = {
-    id: number | string;
-    name: string;
-    price: number;
-    description: string;
-    instock: boolean;
-};
-
+type Inputs = {
+    name: string,
+    price: number
+}
 
 function App() {
-    const [messageApi, contextHolder] = message.useMessage();
+    // bước 1
+    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const [products, setProducts] = useState<TProduct[]>([]);
 
     useEffect(() => {
-        const fetchsProduct = async () => {
-            try {
-                const data = await getAll({ resource: "products" });
-                const newData = data.map((item: TProduct) => ({
-                    ...item,
-                    key: item.id,
-                }));
-                setProducts(newData);
-            } catch (error: any) {
-                throw new Error(error);
-            }
-        };
-        fetchsProduct();
+        const fetchProducts = async () => {
+            const response = await axios.get(`http://localhost:3000/api/products`);
+            const data = await response.data;
+            setProducts(data);
+        }
+        fetchProducts();
     }, []);
-    const handleRemove = async (id: number | string) => {
+
+    const onHandleDelete = async (id: number | string) => {
+        const confirm = window.confirm('Are you sure you want to delete this product?');
+        if (!confirm) return;
+        // call api
+        await axios.delete(`http://localhost:3000/api/products/${id}`);
+
+        // rerender
+        setProducts(products.filter((p) => p.id !== id));
+    }
+    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
         try {
-            await deleteOne({ resource: 'products', id })
-            messageApi.open({
-                type: 'success',
-                content: 'Xóa sản phẩm thành công!',
-            });
-            setProducts(products.filter((item) => item.id !== id));
-
-        } catch (error: any) {
-            throw new Error(error);
+            // call api
+            const response = await axios.post(`http://localhost:3000/api/products`, formData);
+            const data = await response.data;
+            // rerender
+            setProducts([...products, data]);
+        } catch {
+            throw new Error('Thêm thất bại')
         }
-    };
-
-
-    const columns = [
-        {
-            title: 'Tên sản phẩm',
-            dataIndex: 'name',
-            key: 'name',
-        },
-        {
-            title: 'Giá sản phẩm',
-            dataIndex: 'price',
-            key: 'price',
-        },
-        {
-            title: 'Mô tả',
-            dataIndex: 'description',
-            key: 'description',
-        },
-        {
-            title: 'Tình trạng',
-            dataIndex: 'instock',
-            key: 'instock',
-        },
-        {
-            title: 'Hành động',
-            dataIndex: 'action',
-            render: (_: any, item: TProduct) => {
-                return (
-                    <>
-                        <Popconfirm
-                            title="Delete the task"
-                            description="Are you sure to delete this task?"
-                            onConfirm={() => handleRemove(item.id)}
-                            okText="Yes"
-                            cancelText="No"
-                        >
-                            <Button type="primary" danger>Xóa</Button>
-                        </Popconfirm>
-                        <Button>Cập nhật</Button>
-                    </>
-                )
-            }
-        }
-    ];
+    }
     return (
         <>
-            {contextHolder}
-            <h2>Quản lý sản phẩm</h2>
-            <Table dataSource={products} columns={columns} />
-        </>
-    );
+            {/* Bước 2 */}
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input type="text" {...register('name')} />
+                <input type="number" {...register('price')} />
+                <button type="submit">Thêm</button>
+            </form>
+            <ul>
+                <ul>{products.map((product) => (
+                    <li key={product.id}>{product.name}
+                        <button onClick={() => onHandleDelete(product.id)}>Delete</button>
+                    </li>
+                ))}</ul>
+            </ul ></>
+    )
 }
 
 export default App;
